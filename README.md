@@ -1,5 +1,14 @@
 # DB設計
 
+## users table
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|email|string|null: false|
+### Association
+- has_many :groups, through:groups_users
+- has_many :group_users
+- has_many :messages
 
 
 ## groups_users table //中間テーブル
