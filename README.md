@@ -14,11 +14,12 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|user_id|integer||
+|user_id|integer|foreign_key: true|
 ### Association
 - has_many :users, through:groups_users
 - has_many :group_users
 - has_many :messages
+
 
 
 
