@@ -1,44 +1,20 @@
 解決したいこと
-##ビューの分割ができない
-全体的なレイアウトの調整で左右２分割はできています。
-そこから左右で親要素をさらに分割することができていません
-
+Font Awesomeをつかいアイコンを導入したいが
+記述したところが四角いアイコンしかでない
 
 調べた内容とそこから立てた仮説
 https://master.tech-camp.in/curriculums/3496
-カリキュラムを参考にhamlとscssを記入
-
+前カリキュラムで実装したアイコンの書き方をまねた
 
 仮説を元に行った作業内容
-_main_chat.html.haml にl記載
-.chat-main
-  .chat-main__group-info
-  .chat-main__message-list
-  .chat-main__message-form
+haml
+        .side-bar__header__items__user-menu__new-group
+        =link_to "#" do
+          = icon('fab', 'edit')
+        .side-bar__header__items__user-menu__edit-user
+        =link_to "#" do
+          = icon('fab', 'cog')
 
-_message.scss　に記載
-.chat-main {
-  width: calc(100vw - 300px);
-  height: 100vh;
-  &__group-info{
-    background-color: #ffffff;
-    height: 100px;
-    border-bottom: solid 1px #eee;
-  }
-  &__message-list{
-    background-color: #fafafa;
-    height: calc(100vh - 190px);
-  }
-  &__message-form{
-    background-color: #d2d2d2;
-    height: 90px;
-  }
-}
-
-.side-bar {
-  background-color: #253141;
-  width: 300px;
-  height: 100vh;
-}
-
-※まずはchat-mainのみ実装させようとしています
+この記述だと四角いアイコンがでる
+gemはbundle installして
+rails s（再起動）もしている

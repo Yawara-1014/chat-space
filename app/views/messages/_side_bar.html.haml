@@ -1,3 +1,13 @@
 .side-bar
-  .side-bar__user-name
+  .side-bar__header
+    .side-bar__header__items
+      .side-bar__header__items__user-name
+        masa
+      .side-bar__header__items__user-menu
+        .side-bar__header__items__user-menu__new-group
+        =link_to "#", class: "contents__btn--icon" do
+          = icon('fas', 'edit')
+        .side-bar__header__items__user-menu__edit-user
+        =link_to "#", class: "contents__btn--icon" do
+          = icon('fas', 'cog')
   .side-bar__group-list
