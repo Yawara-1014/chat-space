@@ -123,6 +123,10 @@
       overflow: scroll;
       &__group{
         margin-bottom: 40px;
+      .group{
+        text-decoration: none;
+        color:white;
+      }
         &__group-name{
           font-size: 15px;
           margin-bottom: 5px;
