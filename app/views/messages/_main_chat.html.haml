@@ -2,20 +2,22 @@
   .chat-main__group-info
     .chat-main__group-info__left-box
       .chat-main__group-info__left-box__current-group
-        test
+        = @group.name
       .chat-main__group-info__left-box__member-list
         Member:
         .chat-main__group-info__left-box__member-list__member
-          masa
+          - @group.users.each do |user|
+            = user.name
     .chat-main__group-info__edit
-    =link_to "#", class: "edit__btn--icon" do
+    =link_to edit_group_path(@group), class: "edit__btn--icon" do
       Edit
   .chat-main__message-list
+    = render @messages
   .form
-    %form.new_message
+    = form_for [@group, @message] do |f|
       .input-box
-        %input{type: "text",class: "input-box__text", placeholder: "type a message"}
-        %label{class: "input-box__image"}
-          =icon('fas', 'image')
-          %input{type: "file", class: "input-box__image__file"}
-      %input{type: "submit", class: "submit-btn"}
+        = f.text_field :content,class: "input-box__text", placeholder: "type a message"
+        = f.label :image,class: "input-box__image" do
+          = icon('fas', 'image')
+          = f.file_field :image, class: "input-box__image__file"
+      = f.submit 'Send', class: "submit-btn"
